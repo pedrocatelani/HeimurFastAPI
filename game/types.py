@@ -17,6 +17,10 @@ class Atributes(BaseModel):
     constitution: int
     charisma: int
 
+    @property
+    def total(self) -> int:
+        return sum(self.model_dump().values())
+
 
 class CreateSpecs(BaseModel):
     """Expects<br>

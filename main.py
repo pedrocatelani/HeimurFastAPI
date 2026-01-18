@@ -12,7 +12,8 @@ game = Game()
 def create_char(atr: Atributes, specs: CreateSpecs):
     validate = game.validate_creation(atr, specs)
     if validate:
-        return {}
+        sheet = game.generate_char_sheet(atr, specs)
+        return JSONResponse(sheet, status_code=status.HTTP_200_OK)
     else:
         return JSONResponse(
             {"Status": "Character Creation gone wrong!!!! Check your points sum."},
