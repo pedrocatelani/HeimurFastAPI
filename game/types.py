@@ -32,3 +32,17 @@ class CreateSpecs(BaseModel):
     name: str
     char_class: str
     char_alignment: str
+
+
+class DayInfo(BaseModel):
+    """Expects<br>
+    current_dungeon: str<br>
+    current_cicle: str<br>
+    current_week_day: str<br>
+    current_period: str
+    """
+
+    current_dungeon: str
+    current_cicle: int
+    current_week_day: str
+    current_period: str

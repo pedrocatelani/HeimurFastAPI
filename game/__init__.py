@@ -32,3 +32,4 @@ class Game:
     }
 
     from .char_related import validate_creation, generate_char_sheet
+    from .companions_related import see_available_hangouts

@@ -19,3 +19,10 @@ def create_char(atr: Atributes, specs: CreateSpecs):
             {"Status": "Character Creation gone wrong!!!! Check your points sum."},
             status_code=status.HTTP_400_BAD_REQUEST,
         )
+
+
+@app.post("/available-hangouts")
+def available_hangouts(current: DayInfo):
+    return JSONResponse(
+        game.see_available_hangouts(current), status_code=status.HTTP_200_OK
+    )

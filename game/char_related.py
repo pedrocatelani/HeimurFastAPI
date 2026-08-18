@@ -36,6 +36,8 @@ def generate_char_sheet(self, atr: dict, specs: dict):
             "current_hp": hp_calc,
             "max_mana": mana_calc,
             "current_mana": mana_calc,
+            "max_stance": 0,
+            "current_stance": 0,
             "base_attack": 0,
             "base_defense": 0,
             "crit_chance": 5,
@@ -71,5 +73,10 @@ def add_alignments_bonus(sheet: dict) -> dict:
     if path == "sky-dreamer":
         sheet["status"]["base_defense"] += 2
         sheet["status"]["damage_resistance"] += 2
+
+    sheet["status"]["max_stance"] = (
+        sheet["atr"]["constitution"] / 2 + sheet["atr"]["intelligence"] / 2
+    )
+    sheet["status"]["current_stance"] = sheet["status"]["max_stance"]
 
     return sheet
